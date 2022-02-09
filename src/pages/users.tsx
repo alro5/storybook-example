@@ -10,8 +10,6 @@ export default function Users(): JSX.Element {
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
-  console.log("data", data);
-
   return (
     <div>
       <h1>Users</h1>
