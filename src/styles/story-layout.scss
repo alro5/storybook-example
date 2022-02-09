@@ -1,0 +1,14 @@
+.story__layout {
+  max-width: 100%;
+  &-width {
+    &--narrow {
+      width: 600px;
+    }
+    &--medium {
+      width: 1200px;
+    }
+    &--full {
+      width: 100%;
+    }
+  }
+}

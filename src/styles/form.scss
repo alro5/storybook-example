@@ -1,0 +1,23 @@
+@import "./mixins";
+
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 12px;
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+    &--error {
+      input,
+      .select {
+        border-color: darkred;
+      }
+    }
+  }
+  &__error {
+    @include rhythm(12, 16);
+    color: darkred;
+    margin: 0;
+  }
+}

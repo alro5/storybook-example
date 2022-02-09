@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #e2e2e2;
+  &__logo {
+    display: block;
+    width: 120px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
