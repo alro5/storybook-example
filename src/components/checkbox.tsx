@@ -1,13 +1,13 @@
 import { InputHTMLAttributes } from "react";
 import classNames from "classnames";
 import "../styles/checkbox.scss";
-import { RegisterOptions } from "react-hook-form";
+import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   name: string;
   displayName: string;
-  register?: (inputName: string, errors: RegisterOptions) => void;
+  register?: UseFormRegister<FieldValues>;
   errors?: RegisterOptions;
   id: string;
   textLabel?: string;

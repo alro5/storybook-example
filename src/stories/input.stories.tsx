@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Form from "../components/form";
 import { Input } from "../components/input";
+import { StoryLayout } from "./story-layout";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -30,8 +32,14 @@ export default {
       table: {
         disable: true,
       },
+      defaultValue: "name",
     },
     register: {
+      table: {
+        disable: true,
+      },
+    },
+    errors: {
       table: {
         disable: true,
       },
@@ -39,7 +47,11 @@ export default {
   },
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => (
+  <StoryLayout width="narrow">
+    <Input {...args} />
+  </StoryLayout>
+);
 
 export const Example = Template.bind({});
 Example.args = {

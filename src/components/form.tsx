@@ -10,7 +10,7 @@ export default function Form({
   showResetButton,
 }: {
   defaultValues: Record<string, any>;
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
   showResetButton?: boolean;
   onSubmit: (data: Record<string, any>) => void;
 }) {

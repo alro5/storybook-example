@@ -1,14 +1,14 @@
 import { SelectHTMLAttributes } from "react";
 import classNames from "classnames";
 import "../styles/select.scss";
-import { RegisterOptions } from "react-hook-form";
+import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 
 export interface InputProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
   block?: boolean;
   name: string;
   displayName: string;
-  register?: (inputName: string, errors: RegisterOptions) => void;
+  register?: UseFormRegister<FieldValues>;
   errors?: RegisterOptions;
   options: string[];
 }
@@ -33,7 +33,7 @@ export function Select(props: InputProps) {
     <div className={classes}>
       <select
         defaultValue={""}
-        {...(register && register(props.name, errors ?? {}))}
+        {...(register && register(props.name, errors))}
         {...inputProps}
       >
         <option value={""} disabled>

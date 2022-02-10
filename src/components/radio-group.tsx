@@ -16,6 +16,8 @@ interface RadioGroupOption {
 export function RadioGroup(props: RadioGroupProps): JSX.Element {
   const { options, name, displayName, groupHeadline } = props;
 
+  const { register } = useFormContext();
+
   return (
     <div className="radio__group">
       {groupHeadline && (
@@ -31,6 +33,7 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
               displayName={displayName}
               value={o.value}
               textLabel={o.displayValue}
+              register={register}
               errors={{
                 required: true,
               }}

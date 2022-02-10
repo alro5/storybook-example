@@ -1,24 +1,29 @@
 import { InputHTMLAttributes } from "react";
 import classNames from "classnames";
 import "../styles/input.scss";
-import { RegisterOptions } from "react-hook-form";
+import {
+  FieldValues,
+  RegisterOptions,
+  UseFormRegister,
+  UseFormRegisterReturn,
+} from "react-hook-form";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  block?: boolean;
   name: string;
   displayName: string;
-  register?: (inputName: string, errors: RegisterOptions) => void;
+  className?: string;
+  block?: boolean;
   errors?: RegisterOptions;
+  register?: UseFormRegister<FieldValues>;
 }
 
 export function Input(props: InputProps) {
   const {
-    register,
     block = true,
     errors,
     className,
     displayName,
+    register,
     ...inputProps
   } = props;
 
@@ -29,7 +34,7 @@ export function Input(props: InputProps) {
   return (
     <input
       className={classes}
-      {...(register && register(props.name, errors ?? {}))}
+      {...(register && register(props.name, errors as RegisterOptions))}
       {...inputProps}
     />
   );
