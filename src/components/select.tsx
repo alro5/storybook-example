@@ -7,6 +7,7 @@ export interface InputProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
   block?: boolean;
   name: string;
+  displayName: string;
   register?: (inputName: string, errors: RegisterOptions) => void;
   errors?: RegisterOptions;
   options: string[];
@@ -19,6 +20,8 @@ export function Select(props: InputProps) {
     errors,
     className,
     options,
+    placeholder,
+    displayName,
     ...inputProps
   } = props;
 
@@ -29,10 +32,11 @@ export function Select(props: InputProps) {
   return (
     <div className={classes}>
       <select
+        defaultValue={""}
         {...(register && register(props.name, errors ?? {}))}
         {...inputProps}
       >
-        <option value="" selected disabled hidden>
+        <option value={""} disabled>
           Choose {props.name}
         </option>
         {options.map((value) => (

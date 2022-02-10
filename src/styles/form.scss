@@ -11,13 +11,23 @@
     &--error {
       input,
       .select {
-        border-color: darkred;
+        border-color: darkred !important;
       }
     }
   }
   &__error {
-    @include rhythm(12, 16);
+    @include rhythm(11, 14);
     color: darkred;
     margin: 0;
+  }
+  &__actions {
+    display: flex;
+    gap: 12px;
+    justify-content: space-evenly;
+    margin: 8px auto 0;
+    width: 100%;
+    button {
+      width: 100%;
+    }
   }
 }

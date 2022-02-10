@@ -1,7 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "../components/button";
+import { Checkbox } from "../components/checkbox";
 import Form from "../components/form";
 import { Input } from "../components/input";
+import { Radio } from "../components/radio";
+import { RadioGroup } from "../components/radio-group";
 import { Select } from "../components/select";
 import { StoryLayout } from "./story-layout";
 
@@ -40,6 +43,11 @@ export default {
         disable: true,
       },
     },
+    errors: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as ComponentMeta<typeof Input>;
 
@@ -58,6 +66,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
       >
         <Input
           name="name"
+          displayName="Name"
           placeholder="Insert name"
           type="text"
           errors={{
@@ -67,6 +76,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
         />
         <Input
           name="phone"
+          displayName="Phone"
           placeholder="Insert phone"
           type="tel"
           errors={{
@@ -76,7 +86,8 @@ const Template: ComponentStory<typeof Input> = (args) => {
         />
         <Input
           name="email"
-          placeholder="Insert email"
+          displayName="E-mail"
+          placeholder="Insert e-mail"
           type="email"
           errors={{
             required: true,
@@ -85,12 +96,38 @@ const Template: ComponentStory<typeof Input> = (args) => {
         />
         <Select
           name="gender"
+          displayName="Gender"
           options={["Male", "Female"]}
           errors={{
             required: true,
+            validate: (v) => v === "Male" || v === "Female",
           }}
         />
-        <Button primary label="Submit" type="submit" />
+        <Checkbox
+          errors={{
+            required: true,
+            validate: (v) => v === true,
+          }}
+          displayName="Accept news"
+          name="accept-news"
+          id="news"
+          textLabel="Accept news"
+        />
+        <RadioGroup
+          groupHeadline="Whats your favorite programming language?"
+          name="favorite-programming-language"
+          displayName="Programming language"
+          options={[
+            {
+              value: "react",
+              displayValue: "ReactJS",
+            },
+            {
+              value: "vue",
+              displayValue: "VueJS",
+            },
+          ]}
+        />
       </Form>
     </StoryLayout>
   );

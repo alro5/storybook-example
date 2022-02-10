@@ -1,8 +1,7 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { Button } from "./button";
 import "../styles/form.scss";
-import classNames from "classnames";
 
 export default function Form({
   defaultValues,
@@ -21,34 +20,39 @@ export default function Form({
   const { errors } = formState;
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      {React.Children.map(children, (child) => {
-        return child.props.name ? (
-          <div
-            className={
-              "form__row" +
-              (errors[child.props.name] ? " form__row--error" : "")
-            }
-          >
-            {React.createElement(child.type, {
-              ...{
-                ...child.props,
-                register: methods.register,
-                key: child.props.name,
-              },
-            })}
-            {errors[child.props.name]?.type === "required" && (
-              <p className="form__error">{`${child.props.name} is required`}</p>
-            )}
-            {errors[child.props.name]?.type === "pattern" && (
-              <p className="form__error">{`${child.props.name} is invalid`}</p>
-            )}
-          </div>
-        ) : (
-          child
-        );
-      })}
-      {showResetButton && <Button onClick={() => reset()} label="Reset" />}
-    </form>
+    <FormProvider {...methods}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        {React.Children.map(children, (child) => {
+          return child.props.name ? (
+            <div
+              className={
+                "form__row" +
+                (errors[child.props.name] ? " form__row--error" : "")
+              }
+            >
+              {React.createElement(child.type, {
+                ...{
+                  ...child.props,
+                  register: methods.register,
+                  key: child.props.name,
+                },
+              })}
+              {errors[child.props.name]?.type === "required" && (
+                <p className="form__error">{`${child.props.displayName} is required`}</p>
+              )}
+              {errors[child.props.name]?.type === "pattern" && (
+                <p className="form__error">{`${child.props.displayName} is invalid`}</p>
+              )}
+            </div>
+          ) : (
+            child
+          );
+        })}
+        <div className="form__actions">
+          {showResetButton && <Button onClick={() => reset()} label="Reset" />}
+          <Button primary label="Submit" type="submit" />
+        </div>
+      </form>
+    </FormProvider>
   );
 }

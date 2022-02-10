@@ -7,12 +7,20 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   block?: boolean;
   name: string;
+  displayName: string;
   register?: (inputName: string, errors: RegisterOptions) => void;
   errors?: RegisterOptions;
 }
 
 export function Input(props: InputProps) {
-  const { register, block = true, errors, className, ...inputProps } = props;
+  const {
+    register,
+    block = true,
+    errors,
+    className,
+    displayName,
+    ...inputProps
+  } = props;
 
   const classes = classNames("input", className, {
     "input__layout--block": block,
