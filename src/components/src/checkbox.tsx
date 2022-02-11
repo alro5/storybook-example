@@ -4,7 +4,13 @@ import "../styles/checkbox.scss";
 import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Adds custom class
+   */
   className?: string;
+  /**
+   * Input name attribute
+   */
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
@@ -13,7 +19,10 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   textLabel?: string;
 }
 
-export function Checkbox(props: CheckboxProps) {
+/**
+ * Checkbox component
+ */
+export const Checkbox = (props: CheckboxProps) => {
   const {
     register,
     errors,
@@ -47,4 +56,4 @@ export function Checkbox(props: CheckboxProps) {
       </div>
     </div>
   );
-}
+};

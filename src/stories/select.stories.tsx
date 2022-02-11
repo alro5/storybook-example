@@ -36,6 +36,16 @@ export default {
         disable: true,
       },
     },
+    options: {
+      table: {
+        disable: true,
+      },
+    },
+    errors: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as ComponentMeta<typeof Select>;
 

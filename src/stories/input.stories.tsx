@@ -22,11 +22,13 @@ export default {
       control: { type: "boolean" },
       name: "Full width",
       defaultValue: false,
+      description: "Should the input be full width?",
     },
     placeholder: {
       control: { type: "text" },
       name: "Placeholder",
       defaultValue: "Insert name",
+      description: "Should the input have a placeholder text?",
     },
     name: {
       table: {

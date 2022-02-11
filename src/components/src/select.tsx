@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "../styles/select.scss";
 import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 
-export interface InputProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
   block?: boolean;
   name: string;
@@ -13,7 +13,7 @@ export interface InputProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: string[];
 }
 
-export function Select(props: InputProps) {
+export function Select(props: SelectProps) {
   const {
     register,
     block = true,
@@ -22,7 +22,7 @@ export function Select(props: InputProps) {
     options,
     placeholder,
     displayName,
-    ...inputProps
+    ...selectProps
   } = props;
 
   const classes = classNames("select", className, {
@@ -34,7 +34,7 @@ export function Select(props: InputProps) {
       <select
         defaultValue={""}
         {...(register && register(props.name, errors))}
-        {...inputProps}
+        {...selectProps}
       >
         <option value={""} disabled>
           Choose {props.name}

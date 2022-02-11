@@ -19,7 +19,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export function Input(props: InputProps) {
   const {
-    block = true,
+    block = false,
     errors,
     className,
     displayName,

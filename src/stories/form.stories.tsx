@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "../components/button";
+import { Button } from "../components/src/button";
 import { Checkbox } from "../components/checkbox";
 import Form from "../components/form";
 import { Input } from "../components/input";

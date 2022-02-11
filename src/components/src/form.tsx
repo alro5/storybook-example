@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Button } from "./button";
 import "../styles/form.scss";
 
-export default function Form({
+export function Form({
   defaultValues,
   children,
   onSubmit,
