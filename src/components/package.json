@@ -1,8 +1,9 @@
 {
   "name": "skymill-components",
+  "type": "module",
   "version": "2.1.0",
   "description": "A nice greeter",
-  "main": "lib/index.js",
+  "main": " index.js",
   "types": "lib/index.d.ts",
   "keywords": [
     "Skymill",
