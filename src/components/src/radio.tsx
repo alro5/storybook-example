@@ -8,19 +8,19 @@ export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
-  options?: RegisterOptions;
+  registerOptions?: RegisterOptions;
   id: string;
   textLabel?: string;
 }
 
 export function Radio(props: RadioProps) {
-  const { options, className, type = 'radio', name, displayName, id, register, textLabel, ...rest } = props;
+  const { registerOptions, className, type = 'radio', name, displayName, id, register, textLabel, ...rest } = props;
 
   const classes = classNames('radio', className);
 
   return (
     <div className={classes}>
-      <input type={type} id={id} {...(register && register(name, options))} {...rest} />
+      <input type={type} id={id} {...(register && register(name, registerOptions))} {...rest} />
       <div className="radio__labels">
         <label className="radio__button" htmlFor={id}></label>
         {textLabel && (

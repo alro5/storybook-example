@@ -9,12 +9,21 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
-  errors?: RegisterOptions;
+  registerOptions?: RegisterOptions;
   options: string[];
 }
 
 export function Select(props: SelectProps) {
-  const { register, block = true, errors, className, options, placeholder, displayName, ...selectProps } = props;
+  const {
+    register,
+    block = true,
+    registerOptions,
+    className,
+    options,
+    placeholder,
+    displayName,
+    ...selectProps
+  } = props;
 
   const classes = classNames('select', className, {
     'select__layout--block': block,
@@ -22,7 +31,7 @@ export function Select(props: SelectProps) {
 
   return (
     <div className={classes}>
-      <select defaultValue={''} {...(register && register(props.name, errors))} {...selectProps}>
+      <select defaultValue={''} {...(register && register(props.name, registerOptions))} {...selectProps}>
         <option value={''} disabled>
           Choose {props.name}
         </option>

@@ -8,16 +8,16 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   displayName: string;
   className?: string;
   block?: boolean;
-  options?: RegisterOptions;
+  registerOptions?: RegisterOptions;
   register?: UseFormRegister<FieldValues>;
 }
 
 export function Input(props: InputProps) {
-  const { block = false, options, className, displayName, register, ...inputProps } = props;
+  const { block = false, registerOptions, className, displayName, register, ...inputProps } = props;
 
   const classes = classNames('input', className, {
     'input__layout--block': block,
   });
 
-  return <input className={classes} {...(register && register(props.name, options))} {...inputProps} />;
+  return <input className={classes} {...(register && register(props.name, registerOptions))} {...inputProps} />;
 }

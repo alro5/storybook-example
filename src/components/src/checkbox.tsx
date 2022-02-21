@@ -14,7 +14,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
-  options?: RegisterOptions;
+  registerOptions?: RegisterOptions;
   id: string;
   textLabel?: string;
 }
@@ -23,13 +23,13 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
  * Checkbox component
  */
 export const Checkbox = (props: CheckboxProps) => {
-  const { register, options, className, type = 'checkbox', name, displayName, id, textLabel, ...rest } = props;
+  const { register, registerOptions, className, type = 'checkbox', name, displayName, id, textLabel, ...rest } = props;
 
   const classes = classNames('checkbox', className);
 
   return (
     <div className={classes}>
-      <input name={name} type={type} id={id} {...(register && register(name, options))} {...rest} />
+      <input name={name} type={type} id={id} {...(register && register(name, registerOptions))} {...rest} />
       <div className="checkbox__labels">
         <label className="checkbox__button" htmlFor={id}></label>
         {textLabel && (

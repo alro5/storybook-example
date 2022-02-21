@@ -1,5 +1,5 @@
-import { useFormContext } from "react-hook-form";
-import { Radio } from "./radio";
+import { useFormContext } from 'react-hook-form';
+import { Radio } from './radio';
 
 export interface RadioGroupProps {
   options: RadioGroupOption[];
@@ -20,9 +20,7 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
 
   return (
     <div className="radio__group">
-      {groupHeadline && (
-        <p className="radio__group__headline">{groupHeadline}</p>
-      )}
+      {groupHeadline && <p className="radio__group__headline">{groupHeadline}</p>}
       <div className="radio__group__buttons">
         {options.map((o, i) => {
           return (
@@ -34,7 +32,7 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
               value={o.value}
               textLabel={o.displayValue}
               register={register}
-              errors={{
+              registerOptions={{
                 required: true,
               }}
             />

@@ -41,7 +41,7 @@ export default {
         disable: true,
       },
     },
-    errors: {
+    registerOptions: {
       table: {
         disable: true,
       },
@@ -67,7 +67,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
           displayName="Name"
           placeholder="Insert name"
           type="text"
-          errors={{
+          registerOptions={{
             required: true,
             pattern: /^[a-zA-Z\u00C0-\u00FF ]*$/,
           }}
@@ -77,7 +77,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
           displayName="Phone"
           placeholder="Insert phone"
           type="tel"
-          errors={{
+          registerOptions={{
             required: true,
             pattern: /^[0-9]*$/,
           }}
@@ -87,7 +87,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
           displayName="E-mail"
           placeholder="Insert e-mail"
           type="email"
-          errors={{
+          registerOptions={{
             required: true,
             pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
           }}
@@ -96,13 +96,13 @@ const Template: ComponentStory<typeof Input> = (args) => {
           name="gender"
           displayName="Gender"
           options={["Male", "Female"]}
-          errors={{
+          registerOptions={{
             required: true,
             validate: (v) => v === "Male" || v === "Female",
           }}
         />
         <Checkbox
-          errors={{
+          registerOptions={{
             required: true,
             validate: (v) => v === true,
           }}
