@@ -1,7 +1,7 @@
-import { SelectHTMLAttributes } from "react";
-import classNames from "classnames";
-import "../styles/select.scss";
-import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { SelectHTMLAttributes } from 'react';
+import classNames from 'classnames';
+import '../../styles/select.scss';
+import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
@@ -14,29 +14,16 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export function Select(props: SelectProps) {
-  const {
-    register,
-    block = true,
-    errors,
-    className,
-    options,
-    placeholder,
-    displayName,
-    ...selectProps
-  } = props;
+  const { register, block = true, errors, className, options, placeholder, displayName, ...selectProps } = props;
 
-  const classes = classNames("select", className, {
-    "select__layout--block": block,
+  const classes = classNames('select', className, {
+    'select__layout--block': block,
   });
 
   return (
     <div className={classes}>
-      <select
-        defaultValue={""}
-        {...(register && register(props.name, errors))}
-        {...selectProps}
-      >
-        <option value={""} disabled>
+      <select defaultValue={''} {...(register && register(props.name, errors))} {...selectProps}>
+        <option value={''} disabled>
           Choose {props.name}
         </option>
         {options.map((value) => (

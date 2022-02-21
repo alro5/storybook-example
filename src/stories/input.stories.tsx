@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Form from "../components/form";
-import { Input } from "../components/input";
+import { Input } from "../components/src/input";
 import { StoryLayout } from "./story-layout";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

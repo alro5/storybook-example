@@ -1,11 +1,9 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "../components/src/button";
-import { Checkbox } from "../components/checkbox";
-import Form from "../components/form";
-import { Input } from "../components/input";
-import { Radio } from "../components/radio";
-import { RadioGroup } from "../components/radio-group";
-import { Select } from "../components/select";
+import { Checkbox } from "../components/src/checkbox";
+import { Form } from "../components/src/form";
+import { Input } from "../components/src/input";
+import { RadioGroup } from "../components/src/radio-group";
+import { Select } from "../components/src/select";
 import { StoryLayout } from "./story-layout";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

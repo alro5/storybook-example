@@ -1,7 +1,7 @@
-import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { Button } from "./button";
-import "../styles/form.scss";
+import React from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { Button } from './button';
+import '../../styles/form.scss';
 
 export function Form({
   defaultValues,
@@ -24,12 +24,7 @@ export function Form({
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         {React.Children.map(children, (child) => {
           return child.props.name ? (
-            <div
-              className={
-                "form__row" +
-                (errors[child.props.name] ? " form__row--error" : "")
-              }
-            >
+            <div className={'form__row' + (errors[child.props.name] ? ' form__row--error' : '')}>
               {React.createElement(child.type, {
                 ...{
                   ...child.props,
@@ -37,10 +32,10 @@ export function Form({
                   key: child.props.name,
                 },
               })}
-              {errors[child.props.name]?.type === "required" && (
+              {errors[child.props.name]?.type === 'required' && (
                 <p className="form__error">{`${child.props.displayName} is required`}</p>
               )}
-              {errors[child.props.name]?.type === "pattern" && (
+              {errors[child.props.name]?.type === 'pattern' && (
                 <p className="form__error">{`${child.props.displayName} is invalid`}</p>
               )}
             </div>

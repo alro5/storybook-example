@@ -1,41 +1,26 @@
-import { InputHTMLAttributes } from "react";
-import classNames from "classnames";
-import "../styles/radio.scss";
-import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { InputHTMLAttributes } from 'react';
+import classNames from 'classnames';
+import '../../styles/radio.scss';
+import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
-  errors?: RegisterOptions;
+  options?: RegisterOptions;
   id: string;
   textLabel?: string;
 }
 
 export function Radio(props: RadioProps) {
-  const {
-    errors,
-    className,
-    type = "radio",
-    name,
-    displayName,
-    id,
-    register,
-    textLabel,
-    ...rest
-  } = props;
+  const { options, className, type = 'radio', name, displayName, id, register, textLabel, ...rest } = props;
 
-  const classes = classNames("radio", className);
+  const classes = classNames('radio', className);
 
   return (
     <div className={classes}>
-      <input
-        type={type}
-        id={id}
-        {...(register && register(name, errors))}
-        {...rest}
-      />
+      <input type={type} id={id} {...(register && register(name, options))} {...rest} />
       <div className="radio__labels">
         <label className="radio__button" htmlFor={id}></label>
         {textLabel && (

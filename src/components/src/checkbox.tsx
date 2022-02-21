@@ -1,7 +1,7 @@
-import { InputHTMLAttributes } from "react";
-import classNames from "classnames";
-import "../styles/checkbox.scss";
-import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { InputHTMLAttributes } from 'react';
+import classNames from 'classnames';
+import '../../styles/checkbox.scss';
+import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -14,7 +14,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   displayName: string;
   register?: UseFormRegister<FieldValues>;
-  errors?: RegisterOptions;
+  options?: RegisterOptions;
   id: string;
   textLabel?: string;
 }
@@ -23,29 +23,13 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
  * Checkbox component
  */
 export const Checkbox = (props: CheckboxProps) => {
-  const {
-    register,
-    errors,
-    className,
-    type = "checkbox",
-    name,
-    displayName,
-    id,
-    textLabel,
-    ...rest
-  } = props;
+  const { register, options, className, type = 'checkbox', name, displayName, id, textLabel, ...rest } = props;
 
-  const classes = classNames("checkbox", className);
+  const classes = classNames('checkbox', className);
 
   return (
     <div className={classes}>
-      <input
-        name={name}
-        type={type}
-        id={id}
-        {...(register && register(name, errors ?? {}))}
-        {...rest}
-      />
+      <input name={name} type={type} id={id} {...(register && register(name, options))} {...rest} />
       <div className="checkbox__labels">
         <label className="checkbox__button" htmlFor={id}></label>
         {textLabel && (
