@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
-import '../../styles/checkbox.scss';
+import './styles/checkbox.scss';
 import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {

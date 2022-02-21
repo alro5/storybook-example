@@ -1,6 +1,6 @@
 import { SelectHTMLAttributes } from 'react';
 import classNames from 'classnames';
-import '../../styles/select.scss';
+import './styles/select.scss';
 import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {

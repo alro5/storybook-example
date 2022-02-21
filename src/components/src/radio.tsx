@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
-import '../../styles/radio.scss';
+import './styles/radio.scss';
 import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {

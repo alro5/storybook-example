@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from './button';
-import '../../styles/form.scss';
+import './styles/form.scss';
 
 export function Form({
   defaultValues,

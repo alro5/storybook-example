@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
-import '../../styles/input.scss';
+import './styles/input.scss';
 import { FieldValues, RegisterOptions, UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
